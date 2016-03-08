@@ -1,0 +1,3 @@
+[submodule "ros-indigo-qbo-packages"]
+	path = ros-indigo-qbo-packages
+	url = https://github.com/HumaRobotics/ros-indigo-qbo-packages.git
