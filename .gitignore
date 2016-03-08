@@ -1,3 +1,9 @@
+# Common
+*~
+bin/                                                                                                         
+build/                                                                                                       
+lib/
+
 # Compiled Object files
 *.slo
 *.lo
