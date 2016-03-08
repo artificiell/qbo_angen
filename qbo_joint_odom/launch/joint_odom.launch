@@ -1,0 +1,11 @@
+<launch>
+  
+  <!--
+       The qbo_joint_odom node proper. The default parameters assume the
+       base_link to be present and publishes the head joint pose and position
+       as the 'head' frame.
+  -->
+
+  <node name="joint_odom" pkg="qbo_joint_odom" type="qbo_joint_odom.py" />
+
+</launch>

@@ -1,0 +1,23 @@
+<launch>
+  <!--
+       The qbo_arduqbo package only publishes base_footprint, construct a
+       base_link frame directly under the head joint and level with the bottom
+       of the Q.bo's body. These measurements are approximate: they were done
+       with a simple ruler.
+  -->
+  <node name="body_link" pkg="tf" type="static_transform_publisher"
+    args="0.06 0 0.02 0 0 0 base_footprint base_link 100" />
+
+  <node name="camera_link" pkg="tf" type="static_transform_publisher"
+    args="0 0 0 0 0.568 0 head camera_link 100" />
+
+
+  <!--
+       The qbo_joint_odom node proper. The default parameters assume the
+       base_link to be present and publishes the head joint pose and position
+       as the 'head' frame.
+  -->
+
+  <node name="joint_odom" pkg="qbo_joint_odom" type="qbo_joint_odom.py" />
+
+</launch>

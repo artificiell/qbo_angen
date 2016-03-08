@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>qbo_joint_odom</name>
+  <version>0.0.1</version>
+  <description>
+
+     qbo_joint_odom
+
+  </description>
+  <author email="andreas.persson@oru.se">Andreas Persson</author>
+  <maintainer email="andreas.persson@oru.se">Andreas Persson</maintainer>
+  <license>MIT</license>
+  <!--<url>http://ros.org/wiki/qbo_joint_odom</url>-->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>tf</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>tf</run_depend>
+
+</package>
+
+
