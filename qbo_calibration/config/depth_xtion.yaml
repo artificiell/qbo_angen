@@ -1,0 +1,20 @@
+image_width: 640
+image_height: 480
+camera_name: depth_xtion
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [590.828429, 0, 350.653276, 0, 590.249375, 210.847608, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.008426, 0.020053, -0.012261, 0.016755, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [591.001099, 0, 359.599019, 0, 0, 595.821899, 205.454357, 0, 0, 0, 1, 0]

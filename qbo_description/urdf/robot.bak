@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<robot name="qbo">
+    
+  <!-- Links -->
+
+  <!-- base_footprint is a fictitious link(frame) that is on the ground right below base_link origin, 
+       navigation stack depends on this frame -->
+  <link name="base_footprint">
+    <visual>
+      <geometry>
+        <box size="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+       <box size="0.001 0.001 0.001" />
+      </geometry>
+      <origin xyz="0 0 0.017" rpy="0 0 0" />
+    </collision>
+  </link>
+
+  <!--
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.4" radius="0.2"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+  -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://qbo_urdf/mesch/qbo_both.dae"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="left_wheel_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+   
+  <link name="right_wheel_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="head">
+    <visual>
+      <geometry>
+        <sphere radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="xtion_link">
+    <visual>
+      <geometry>
+        <box size="0.25 0.075 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="xtion_stork_link">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="left_eye_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+  <link name="right_eye_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+  <link name="left_pupil_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+  <link name="right_pupil_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.025"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+
+  <!-- Joints -->
+  <joint name="base_footprint_joint" type="fixed">        
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="0 0 0.017" />
+  </joint>
+
+  <joint name="right_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <origin xyz="0.22 0 .25"/>
+  </joint>
+
+
+  <joint name="left_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <origin xyz="-0.22 0 .25"/>
+  </joint>
+
+  <joint name="head_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="head"/>
+    <origin xyz="0 0 0.35"/>
+  </joint>
+
+  <joint name="xtion_joint" type="fixed">
+    <parent link="head"/>
+    <child link="xtion_link"/>
+    <origin xyz="0 0 0.25"/>
+  </joint>
+
+  <joint name="xtion_stork_joint" type="fixed">
+    <parent link="head"/>
+    <child link="xtion_stork_link"/>
+    <origin xyz="0 0 0.2"/>
+  </joint>
+
+  <joint name="left_eye_joint" type="fixed">
+    <parent link="head"/>
+    <child link="left_eye_link"/>
+    <origin xyz="-0.06 0.15 0.0"/>
+  </joint>
+
+  <joint name="right_eye_joint" type="fixed">
+    <parent link="head"/>
+    <child link="right_eye_link"/>
+    <origin xyz="0.06 0.15 0.0"/>
+  </joint>
+
+  <joint name="right_eye_to_pupil" type="fixed">
+    <parent link="right_eye_link"/>
+    <child link="right_pupil_link"/>
+    <origin xyz="0 0.03 0.0"/>
+  </joint>
+
+  <joint name="left_eye_to_pupil" type="fixed">
+    <parent link="left_eye_link"/>
+    <child link="left_pupil_link"/>
+    <origin xyz="0 0.03 0.0"/>
+  </joint>
+
+</robot>
+
